@@ -2,6 +2,8 @@
 
 This repository reproduces a Next.js 16 Pages Router production Turbopack route-loader issue.
 
+The repro is pinned to `next@16.3.0-canary.19`, where the issue still reproduces.
+
 Expected behavior: `window.next.router.pageLoader.loadPage('/track')` resolves and the page entrypoint registers through `window.__NEXT_P.push` / `routeLoader.onEntrypoint`.
 
 Broken behavior: route chunks are fetched successfully, but the page entrypoint does not register before the route loader times out, causing `Route did not complete loading: /track` and full document navigations.
